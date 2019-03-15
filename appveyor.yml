@@ -1,0 +1,14 @@
+image: 'Visual Studio 2017'
+
+configuration:
+  - Release
+
+build_script:
+  - C:\msys64\usr\bin\bash -lc "
+    cd \"%APPVEYOR_BUILD_FOLDER%\" &&
+    cp -r /c/Python36-64 Python36-x64 &&
+    tar -czvf Python36-x64.tar.gz Python36-x64"
+
+artifacts:
+  - path: "Python36-x64.tar.gz"
+    name: "Python36-x64.tar.gz"
